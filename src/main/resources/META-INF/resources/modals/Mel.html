@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>멜 상세</title>
+  
+  <!-- Bootstrap 5 CSS (index.html과 동일하게 연동) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  
+  <!-- LOL 스타일 맞추기 위한 간단 커스텀 (필요 시 resources/css/custom.css로 이동) -->
+  <style>
+    body {
+      background-color: #0a0e17;
+      color: white;
+      padding: 1.5rem;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    h3, h4 {
+      color: #c8aa6e; /* LOL 골드 톤 */
+    }
+    .text-muted {
+      color: #a0a0a0 !important;
+    }
+    .list-group-item {
+      background: transparent;
+      border-color: #444;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row g-4">
+      
+      <!-- 왼쪽: 이미지 + 기본 정보 -->
+      <div class="col-lg-5 text-center">
+        <img src="../img/Mel.jpg" class="img-fluid rounded shadow-lg" alt="멜" style="max-height: 480px; object-fit: contain;">
+        <div class="mt-3">
+          <h3 class="mb-1">멜 (Mel)</h3>
+          <p class="text-muted fs-5">마법사/서포터 / 난이도: 중</p>
+        </div>
+      </div>
+      
+      <!-- 오른쪽: 스킬 + 스토리 -->
+      <!-- <div class="col-lg-7">
+        <h4 class="border-bottom border-secondary pb-2 mb-3">스킬</h4>
+        <ul class="list-group list-group-flush mb-4">
+          <li class="list-group-item">패시브: 이글거리는 광휘</li>
+          <li class="list-group-item">Q: 빛의 세례</li>
+          <li class="list-group-item">W: 반박</li>
+          <li class="list-group-item">E: 태양 올가미</li>
+          <li class="list-group-item">R: 황금 일식</li>
+        </ul> -->
+
+        <div class="col-lg-7">
+  <h4 class="border-bottom border-secondary pb-2 mb-3">스킬</h4>
+  <ul class="list-group list-group-flush mb-4">
+
+    <li class="list-group-item d-flex align-items-center gap-3">
+      <img src="../img/skills/Mel/Mel_P.jpg" alt="패시브 아이콘"
+           style="width:48px; height:48px; object-fit:cover; border-radius:6px; border:1px solid #555;">
+      <div>
+        <strong>패시브</strong> 이글거리는 광휘
+        <p class="text-muted small mb-0">멜이 기본 공격과 스킬로 피해를 입힐 때마다 5초 동안 압도 중첩을 적용하고 초기화하여 마법 피해를 비축합니다. 적용 시, 비축한 피해량이 적의 보호막과 체력을 합친 것보다 크면 적이 처형됩니다.
+
+스킬을 사용하면 멜이 다음 기본 공격 시 3개의 추가 투사체를 발사하며 개당 마법 피해를 입힙니다. 이 효과로 추가할 수 있는 투사체는 최대 9개입니다.</p>
+      </div>
+    </li>
+
+    <li class="list-group-item d-flex align-items-center gap-3">
+      <img src="../img/skills/Mel/Mel_Q.jpg" alt="Q 아이콘"
+           style="width:48px; height:48px; object-fit:cover; border-radius:6px; border:1px solid #555;">
+      <div>
+        <strong>Q</strong> 빛의 세례
+        <p class="text-muted small mb-0">멜이 대상 지점 주위에 폭발하는 투사체 여러 개를 퍼붓습니다.
+
+첫 번째 폭발은 마법 피해를 입히며 이후 각 폭발은 추가 마법 피해를 입힙니다. 모두 합쳐 최대 마법 피해를 입힙니다.</p>
+      </div>
+    </li>
+
+    <li class="list-group-item d-flex align-items-center gap-3">
+      <img src="../img/skills/Mel/Mel_W.jpg" alt="W 아이콘"
+           style="width:48px; height:48px; object-fit:cover; border-radius:6px; border:1px solid #555;">
+      <div>
+        <strong>W</strong> 반박
+        <p class="text-muted small mb-0">멜이 자신을 방어막으로 감싸 적 챔피언이 날리는 투사체를 반사하고 0.75초 동안 보호막을 얻으며, 1.5초 동안 이동 속도가 40% 증가했다가 점차 감소합니다.
+
+반사된 투사체는 최초 피해량의 일부에 해당하는 마법 피해를 입힙니다.</p>
+      </div>
+    </li>
+
+    <li class="list-group-item d-flex align-items-center gap-3">
+      <img src="../img/skills/Mel/Mel_E.jpg" alt="E 아이콘"
+           style="width:48px; height:48px; object-fit:cover; border-radius:6px; border:1px solid #555;">
+      <div>
+        <strong>E</strong> 태양 올가미
+        <p class="text-muted small mb-0">멜이 찬란한 구체를 발사하여 중심에 있는 적을  속박속박하고 마법 피해를 입힙니다.
+
+구체는 그 주변에 적대적 영역을 형성하여 적을 30% 둔화시키고 초당 마법 피해를 입힙니다.</p>
+      </div>
+    </li>
+
+    <li class="list-group-item d-flex align-items-center gap-3">
+      <img src="../img/skills/Mel/Mel_R.jpg" alt="R 아이콘"
+           style="width:48px; height:48px; object-fit:cover; border-radius:6px; border:1px solid #555;">
+      <div>
+        <strong>R</strong> 황금 일식
+        <p class="text-muted small mb-0">기본 지속 효과: 압도 피해가 비축한 마법 피해까지 증가합니다.
+
+사용 시: 멜이 압도의 영향을 받는 모든 적에게 힘을 방출하여 마법 피해를 입힙니다.
+
+적 챔피언이 압도의 영향을 받고 있을 때만 사용할 수 있습니다.</p>
+      </div>
+    </li>
+
+  </ul>
+
+        <h4 class="border-bottom border-secondary pb-2 mb-3">배경 스토리 요약</h4>
+        <p class="text-secondary lh-lg">
+            멜 메다르다는 한때 녹서스에서 손꼽히는 세도가 중 하나였던 메다르다 가문의 실질적 후계자다. 겉보기에는 우아한 귀족이지만 그 이면에는 자신이 만나는 모든 사람의 모든 것을 파악하는 노련한 정치가가 있다. 수수께끼에 싸인 검은 장미단과 조우한 후, 멜은 어머니의 기만이 얼마나 깊은지 알아냈고 처음으로 자신의 통제력을 벗어난 상황에 직면했다. 각성하여 마법의 힘을 손에 넣은 멜은 답을 찾아 고향으로 향했다. 멜 내면의 빛을 길들이고자 하는 이는 여전히 많지만 멜의 영혼이 의지를 꺾는 일은 결코 없을 것이다.
+        </p>
+      </div>
+      
+    </div>
+  </div>
+
+</body>
+</html>

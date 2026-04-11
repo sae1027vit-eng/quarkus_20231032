@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자헨 상세</title>
+  
+  <!-- Bootstrap 5 CSS (index.html과 동일하게 연동) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  
+  <!-- LOL 스타일 맞추기 위한 간단 커스텀 (필요 시 resources/css/custom.css로 이동) -->
+  <style>
+    body {
+      background-color: #0a0e17;
+      color: white;
+      padding: 1.5rem;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    h3, h4 {
+      color: #c8aa6e; /* LOL 골드 톤 */
+    }
+    .text-muted {
+      color: #a0a0a0 !important;
+    }
+    .list-group-item {
+      background: transparent;
+      border-color: #444;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row g-4">
+      
+      <!-- 왼쪽: 이미지 + 기본 정보 -->
+      <div class="col-lg-5 text-center">
+        <img src="../img/Zaahen.jpg" class="img-fluid rounded shadow-lg" alt="자헨" style="max-height: 480px; object-fit: contain;">
+        <div class="mt-3">
+          <h3 class="mb-1">자헨 (Zaahen)</h3>
+          <p class="text-muted fs-5">전사/암살자 / 난이도: 하</p>
+        </div>
+      </div>
+      
+      <!-- 오른쪽: 스킬 + 스토리 -->
+      <!-- <div class="col-lg-7">
+        <h4 class="border-bottom border-secondary pb-2 mb-3">스킬</h4>
+        <ul class="list-group list-group-flush mb-4">
+          <li class="list-group-item">패시브: 전쟁 단련</li>
+          <li class="list-group-item">Q: 다르킨의 글레이브</li>
+          <li class="list-group-item">W: 공포의 귀환</li>
+          <li class="list-group-item">E: 찬란한 쇄도</li>
+          <li class="list-group-item">R: 단호한 판결</li>
+        </ul> -->
+
+        <div class="col-lg-7">
+  <h4 class="border-bottom border-secondary pb-2 mb-3">스킬</h4>
+  <ul class="list-group list-group-flush mb-4">
+
+    <li class="list-group-item d-flex align-items-center gap-3">
+      <img src="../img/skills/Zaahen/Zaahen_P.jpg" alt="패시브 아이콘"
+           style="width:48px; height:48px; object-fit:cover; border-radius:6px; border:1px solid #555;">
+      <div>
+        <strong>패시브</strong> 전쟁 단련
+        <p class="text-muted small mb-0">적 챔피언에게 기본 공격 또는 스킬 적중 시 자헨이 결심 중첩을 1 얻습니다. 최대 12회 중첩되며, 중첩당 공격력이 증가합니다.
+
+결심이 가득 차면 기본 지속 효과 추가 공격력이 두 배가 되며, 사망하게 될 경우 대신 4초 동안 경직된 다음 체력을 회복하고 부활합니다.
+
+자헨의 부활에는 재사용 대기시간이 적용됩니다.</p>
+      </div>
+    </li>
+
+    <li class="list-group-item d-flex align-items-center gap-3">
+      <img src="../img/skills/Zaahen/Zaahen_Q.jpg" alt="Q 아이콘"
+           style="width:48px; height:48px; object-fit:cover; border-radius:6px; border:1px solid #555;">
+      <div>
+        <strong>Q</strong> 다르킨의 글레이브
+        <p class="text-muted small mb-0">자헨이 다음 기본 공격 시 두 번 공격하며 추가 물리 피해를 입히고 체력을 회복합니다.</p>
+      </div>
+    </li>
+
+    <li class="list-group-item d-flex align-items-center gap-3">
+      <img src="../img/skills/Zaahen/Zaahen_W.jpg" alt="W 아이콘"
+           style="width:48px; height:48px; object-fit:cover; border-radius:6px; border:1px solid #555;">
+      <div>
+        <strong>W</strong> 공포의 귀환
+        <p class="text-muted small mb-0">자헨이 지정한 방향으로 내질러 적중한 적에게 물리 피해를 입히고 끌어당겨 물리 피해를 입힙니다.</p>
+      </div>
+    </li>
+
+    <li class="list-group-item d-flex align-items-center gap-3">
+      <img src="../img/skills/Zaahen/Zaahen_E.jpg" alt="E 아이콘"
+           style="width:48px; height:48px; object-fit:cover; border-radius:6px; border:1px solid #555;">
+      <div>
+        <strong>E</strong> 찬란한 쇄도
+        <p class="text-muted small mb-0">자헨이 돌진한 후 주변을 가르며 근처 적에게 물리 피해를 입힙니다.
+
+가르기 범위 가장자리에 있는 적은 대신 물리 피해와 대상 최대 체력에 비례한 마법 피해를 입습니다.</p>
+      </div>
+    </li>
+
+    <li class="list-group-item d-flex align-items-center gap-3">
+      <img src="../img/skills/Zaahen/Zaahen_R.jpg" alt="R 아이콘"
+           style="width:48px; height:48px; object-fit:cover; border-radius:6px; border:1px solid #555;">
+      <div>
+        <strong>R</strong> 단호한 판결
+        <p class="text-muted small mb-0">기본 지속 효과: 자헨의 방어구 관통력이 증가합니다.
+
+사용 시: 자헨이 날아오릅니다. 스킬을 사용하는 동안 받는 피해량이 50% 감소합니다.
+
+자헨이 아래로 내려찍으며 물리 피해를 입히고 적 챔피언에게 입힌 피해량의 33%만큼 체력을 회복합니다.</p>
+      </div>
+    </li>
+
+  </ul>
+
+        <h4 class="border-bottom border-secondary pb-2 mb-3">배경 스토리 요약</h4>
+        <p class="text-secondary lh-lg">
+            신성과 불경한 힘을 모두 지닌 추락한 신 자헨은 자신을 집어삼키려는 타락에 맞서 싸우며, 동족 다르킨을 사냥합니다. 광기를 피해 스스로 글레이브 속에 자신을 가두었던 자헨은 이제 자유의 몸이 되어 고결한 마음과 잔혹한 의지로 움직입니다. 내면에서 벌어지는 영원한 전쟁을 버텨내는 한, 자헨은 룬테라를 파멸로 이끄는 모든 존재 위에 우뚝 서게 될 것입니다.
+        </p>
+      </div>
+      
+    </div>
+  </div>
+
+</body>
+</html>

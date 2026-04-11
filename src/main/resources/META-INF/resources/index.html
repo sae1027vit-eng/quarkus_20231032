@@ -7,7 +7,7 @@
   <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> -->
    <script src="js/bootstrap.bundle.min.js"></script>
    <script src="js/test.js"></script>
-   <script src="js/search.js" defer></script> //dfer: HTML 다 읽은 후 JS 실행
+   <!-- <script src="js/search.js" defer></script> //dfer: HTML 다 읽은 후 JS 실행 -->
 
 <script>
   window.onload = function() {
@@ -87,13 +87,15 @@
         </div>
     </section>
 
+
+
   <div class="container my-5">
-    <div class="row g-4">
+    <div class="row g-4" id="championCards">
 
       <!-- 아트록스 카드 -->
       <div class="col-md-6 col-lg-4 col-xl-2">
         <div class="card bg-dark text-white border-secondary h-100">
-          <img src="../img/Aatrox.jpg" class="card-img-top" alt="아트록스">
+          <img src="img/Aatrox.jpg" class="card-img-top" alt="아트록스">
           <div class="card-body">
             <h5 class="card-title">아트록스 (Aatrox)</h5>
             <p class="card-text small">역할: 전사 / 난이도: 상</p>
@@ -108,27 +110,101 @@
 
       <!-- Sylas 카드 -->
       <div class="col-md-6 col-lg-4 col-xl-2">
-        <div class="card text-center h-100">
-          <img src="../img/sylas.jpg" class="card-img-top" alt="Sylas" loading="lazy">
+        <div class="card bg-dark text-white border-secondary h-100">
+          <img src="img/sylas.jpg" class="card-img-top" alt="사일러스">
           <div class="card-body">
-            <h5 class="card-title accent-red">Sylas</h5>
-            <p class="card-text accent-red">궁극기를 훔치세요</p>
+            <h5 class="card-title">사일러스 (Sylas)</h5>
+            <p class="card-text small">역할: 마법사 / 난이도: 상</p>
           </div>
-          <h2 class="text-center accent-purple">챔피언 선택</h2>
+          <div class="card-footer bg-transparent border-0">
+            <button class="btn btn-outline-light w-100" data-bs-toggle="modal" data-bs-target="#modalSylas">
+              상세 보기
+            </button>
+          </div>
         </div>
       </div>
 
+      <!-- Ahri 카드 -->
+      <div class="col-md-6 col-lg-4 col-xl-2">
+        <div class="card bg-dark text-white border-secondary h-100">
+          <img src="img/Ahri.jpg" class="card-img-top" alt="아리">
+          <div class="card-body">
+            <h5 class="card-title">아리 (Ahri)</h5>
+            <p class="card-text small">역할: 마법사 / 난이도: 중</p>
+          </div>
+          <div class="card-footer bg-transparent border-0">
+            <button class="btn btn-outline-light w-100" data-bs-toggle="modal" data-bs-target="#modalAhri">
+              상세 보기
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ashe 카드 -->
+      <div class="col-md-6 col-lg-4 col-xl-2">
+        <div class="card bg-dark text-white border-secondary h-100">
+          <img src="img/Ashe.jpg" class="card-img-top" alt="애쉬">
+          <div class="card-body">
+            <h5 class="card-title">애쉬 (Ashe)</h5>
+            <p class="card-text small">역할: 원거리 / 난이도: 하</p>
+          </div>
+          <div class="card-footer bg-transparent border-0">
+            <button class="btn btn-outline-light w-100" data-bs-toggle="modal" data-bs-target="#modalAshe">
+              상세 보기
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mel 카드 -->
+      <div class="col-md-6 col-lg-4 col-xl-2">
+        <div class="card bg-dark text-white border-secondary h-100">
+          <img src="img/Mel.jpg" class="card-img-top" alt="멜">
+          <div class="card-body">
+            <h5 class="card-title">멜 (Mel)</h5>
+            <p class="card-text small">역할: 마법사 / 난이도: 중</p>
+          </div>
+          <div class="card-footer bg-transparent border-0">
+            <button class="btn btn-outline-light w-100" data-bs-toggle="modal" data-bs-target="#modalMel">
+              상세 보기
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Zaahen 카드 -->
+      <div class="col-md-6 col-lg-4 col-xl-2">
+        <div class="card bg-dark text-white border-secondary h-100">
+          <img src="img/Zaahen.jpg" class="card-img-top" alt="자헨">
+          <div class="card-body">
+            <h5 class="card-title">자헨 (Zaahen)</h5>
+            <p class="card-text small">역할: 전사 / 난이도: 하</p>
+          </div>
+          <div class="card-footer bg-transparent border-0">
+            <button class="btn btn-outline-light w-100" data-bs-toggle="modal" data-bs-target="#modalZaahen">
+              상세 보기
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
     
 
-  <h2>최신 뉴스</h2>
-  <div>
+  <h2 id="newsSection">최신 뉴스</h2>
+  <div id="newsContent">
     <h3>새로운 챔피언 출시</h3>
     <p>2026 루나 레벨 이벤트!</p>
   </div>
 
+<!-- ===== 검색 결과 섹션 (기본 숨김) ===== -->
+
+
   <!-- ✅ 아트록스 모달 (body 닫히기 전, row 밖에 위치) -->
   <div class="modal fade" id="modalAatrox" tabindex="-1" aria-labelledby="modalAatroxLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <!-- modal-dialog-scrollable 삭제 -->
+    <div class="modal-dialog modal-xl modal-dialog-centered "> 
       <div class="modal-content bg-dark text-white border-secondary">
 
         <!-- 헤더 -->
@@ -142,7 +218,7 @@
           <iframe
             src="../modals/Aatrox.html"
             frameborder="0"
-            scrolling="no"
+            scrolling="yes"
             style="width: 100%; height: 100%; border: none;"
             allowfullscreen>
           </iframe>
@@ -157,7 +233,221 @@
     </div>
   </div>
 
- <!-- <script src="js/search.js"></script> -->
+  <!-- ✅ 사일러스 모달 (body 닫히기 전, row 밖에 위치) -->
+  <div class="modal fade" id="modalSylas" tabindex="-1" aria-labelledby="modalSylasLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered ">
+      <div class="modal-content bg-dark text-white border-secondary">
+
+        <!-- 헤더 -->
+        <div class="modal-header border-secondary">
+          <h5 class="modal-title" id="modalSylasLabel">사일러스(Sylas) 상세정보</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <!-- 본문 (iframe) -->
+        <div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
+          <iframe
+            src="../modals/Sylas.html"
+            frameborder="0"
+            scrolling="yes"
+            style="width: 100%; height: 100%; border: none;"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <!-- 푸터 -->
+        <div class="modal-footer border-secondary">
+          <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">닫기</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ 아리 모달 (body 닫히기 전, row 밖에 위치) -->
+  <div class="modal fade" id="modalAhri" tabindex="-1" aria-labelledby="modalAhriLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered ">
+      <div class="modal-content bg-dark text-white border-secondary">
+
+        <!-- 헤더 -->
+        <div class="modal-header border-secondary">
+          <h5 class="modal-title" id="modalAhriLabel">아리(Ahri) 상세정보</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <!-- 본문 (iframe) -->
+        <div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
+          <iframe
+            src="modals/Ahri.html"
+            frameborder="0"
+            scrolling="yes"
+            style="width: 100%; height: 100%; border: none;"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <!-- 푸터 -->
+        <div class="modal-footer border-secondary">
+          <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">닫기</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ 애쉬 모달 (body 닫히기 전, row 밖에 위치) -->
+  <div class="modal fade" id="modalAshe" tabindex="-1" aria-labelledby="modalAsheLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered ">
+      <div class="modal-content bg-dark text-white border-secondary">
+
+        <!-- 헤더 -->
+        <div class="modal-header border-secondary">
+          <h5 class="modal-title" id="modalAsheLabel">애쉬(Ashe) 상세정보</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <!-- 본문 (iframe) -->
+        <div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
+          <iframe
+            src="modals/Ashe.html"
+            frameborder="0"
+            scrolling="yes"
+            style="width: 100%; height: 100%; border: none;"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <!-- 푸터 -->
+        <div class="modal-footer border-secondary">
+          <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">닫기</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ 멜 모달 (body 닫히기 전, row 밖에 위치) -->
+  <div class="modal fade" id="modalMel" tabindex="-1" aria-labelledby="modalMelLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered ">
+      <div class="modal-content bg-dark text-white border-secondary">
+
+        <!-- 헤더 -->
+        <div class="modal-header border-secondary">
+          <h5 class="modal-title" id="modalMelLabel">멜(Mel) 상세정보</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <!-- 본문 (iframe) -->
+        <div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
+          <iframe
+            src="modals/Mel.html"
+            frameborder="0"
+            scrolling="yes"
+            style="width: 100%; height: 100%; border: none;"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <!-- 푸터 -->
+        <div class="modal-footer border-secondary">
+          <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">닫기</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ 자헨 모달 (body 닫히기 전, row 밖에 위치) -->
+  <div class="modal fade" id="modalZaahen" tabindex="-1" aria-labelledby="modalZaahenLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered ">
+      <div class="modal-content bg-dark text-white border-secondary">
+
+        <!-- 헤더 -->
+        <div class="modal-header border-secondary">
+          <h5 class="modal-title" id="modalZaahenLabel">자헨(Zaahen) 상세정보</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <!-- 본문 (iframe) -->
+        <div class="modal-body p-0" style="height: 65vh; background: #0a0e17;">
+          <iframe
+            src="modals/Zaahen.html"
+            frameborder="0"
+            scrolling="yes"
+            style="width: 100%; height: 100%; border: none;"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <!-- 푸터 -->
+        <div class="modal-footer border-secondary">
+          <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">닫기</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+ 
+
+
+ <script src="js/search.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </div>
+
+<section id="searchResults" style="display:none;">
+
+  <!-- 키워드 헤더 -->
+  <div class="search-keyword-header" style="background:#111; text-align:center; padding:40px 0;">
+    <h1 id="searchKeywordDisplay" style="color:#fff;"></h1>
+  </div>
+
+  <!-- 본문: 사이드바 + 콘텐츠 -->
+  <div class="search-body">
+    <div class="container-fluid px-0">
+      <div class="row g-0">
+
+        <!-- 왼쪽 카테고리 사이드바 -->
+        <div class="col-md-3 col-lg-2 py-4" style="background:#fff; border-right:1px solid #eee;">
+          <div class="px-3 mb-3" style="font-size:0.8rem; color:#999; text-transform:uppercase;">카테고리</div>
+          <div class="search-category-item px-3 py-2" 
+               style="cursor:pointer; border-left:3px solid #c8253a; color:#c8253a; font-weight:bold;"
+               onclick="switchCategory('champion', this)">
+            챔피언 <span id="champCount">(0)</span>
+          </div>
+          <div class="search-category-item px-3 py-2"
+               style="cursor:pointer; border-left:3px solid transparent;"
+               onclick="switchCategory('news', this)">
+            뉴스 <span id="newsCount">(0)</span>
+          </div>
+        </div>
+
+        <!-- 오른쪽 콘텐츠 -->
+        <div class="col-md-9 col-lg-10 p-4" style="background:#f9f9f9; min-height:400px;">
+
+          <!-- 챔피언 결과 -->
+          <div id="resultChampion">
+            <h5 class="mb-4" style="color:#333;">챔피언</h5>
+            <div id="championResultList"></div>
+          </div>
+
+          <!-- 뉴스 결과 -->
+          <div id="resultNews" style="display:none;">
+            <h5 class="mb-4" style="color:#333;">뉴스</h5>
+            <div id="newsResultList"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ 과제: 메인화면으로 돌아가기 버튼 -->
+  <div class="text-center py-4" style="background:#111;">
+    <button class="btn btn-outline-light" onclick="showMainScreen()">← 메인화면으로 돌아가기</button>
+  </div>
+
+</section>
+
 </body>
 </html>
