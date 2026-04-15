@@ -31,19 +31,27 @@ function showMainScreen() {
   document.getElementById('searchInput').value = '';
 }
 
-// ── 카테고리 탭 전환 ──────────────────────────────────────────
-function switchCategory(type, el) {
-  document.querySelectorAll('.search-category-item').forEach(item => {
-    item.style.borderLeft = '3px solid transparent';
-    item.style.color = '#333';
-    item.style.fontWeight = 'normal';
-  });
-  el.style.borderLeft = '3px solid #c8253a';
-  el.style.color = '#c8253a';
-  el.style.fontWeight = 'bold';
+// // ── 카테고리 탭 전환 ──────────────────────────────────────────
+// function switchCategory(type, el) {
+//   document.querySelectorAll('.search-category-item').forEach(item => {
+//     item.style.borderLeft = '3px solid transparent';
+//     item.style.color = '#333';
+//     item.style.fontWeight = 'normal';
+//   });
+//   el.style.borderLeft = '3px solid #c8253a';
+//   el.style.color = '#c8253a';
+//   el.style.fontWeight = 'bold';
 
-  document.getElementById('resultChampion').style.display = (type === 'champion') ? 'block' : 'none';
-  document.getElementById('resultNews').style.display     = (type === 'news')     ? 'block' : 'none';
+//   document.getElementById('resultChampion').style.display = (type === 'champion') ? 'block' : 'none';
+//   document.getElementById('resultNews').style.display     = (type === 'news')     ? 'block' : 'none';
+// }
+
+// ── 카테고리 전환 ────────────────────────────────────────────
+function switchCategory(type, el) {
+    document.querySelectorAll('.search-category-item').forEach(i => i.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById('resultChampion').style.display = type === 'champion' ? 'block' : 'none';
+    document.getElementById('resultNews').style.display = type === 'news' ? 'block' : 'none';
 }
 
 // ── 검색 실행 ────────────────────────────────────────────────
