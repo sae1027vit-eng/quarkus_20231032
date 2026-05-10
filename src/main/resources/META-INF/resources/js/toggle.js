@@ -1,16 +1,23 @@
-// [추가] 다크/라이트 모드 토글 JavaScript
+// 다크/라이트 모드 토글
 function toggleTheme() {
     const body = document.body;
     const btn = document.getElementById('themeToggleBtn');
     const navbar = document.querySelector('.navbar');
+
     body.classList.toggle('light-mode');
+
     if (body.classList.contains('light-mode')) {
         btn.textContent = ' LIGHT';
         navbar.classList.remove('navbar-dark', 'bg-dark');
         navbar.classList.add('navbar-light', 'bg-light');
-    }  else {
+    } else {
         btn.textContent = ' DARK';
         navbar.classList.remove('navbar-light', 'bg-light');
         navbar.classList.add('navbar-dark', 'bg-dark');
     }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('themeToggleBtn')
+        .addEventListener('click', toggleTheme);
+});
