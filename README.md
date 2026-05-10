@@ -20,3 +20,7 @@ search.js 챔피언 검색 기능 작성, 검색 동작 실행 과정 이해
 다크,라이프 전환 모드 구현, db설정
 ##10주차 수업 내용
 로그인 기능 구현
+#커밋 오류 이유(claude)
+ 로컬이 GitHub보다 2커밋 뒤처짐
+ README.md 충돌 -> 로컬 README.md와 GitHub README.md 내용이 달라서 충돌 발생
+ Detached HEAD 상태 -> 커밋이 main 브랜치가 아닌 분리된 상태. git checkout main 으로 복구
