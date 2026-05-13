@@ -29,3 +29,5 @@ search.js 챔피언 검색 기능 작성, 검색 동작 실행 과정 이해
                                                 .addEventListener('click', toggleTheme); 
 로그인 페이지, 로그인후 페이지 다크/라이트 모드 추가  <script src="js/toggle.js" ></script>에 defer추가 login.html,main_after_login.html(body로 옮기면 defer없어도 작동 (index.html에 구현))
 defer추가 이유 script가 head에 있어서 없는경우 head에서 script실행후 버튼은 나중에 생성 -> 에러남
+##11주차 수업
+로그인,로그아웃구현, 회원가입 화면 구현, 기능(암호화,회원가입 정보 체크)
