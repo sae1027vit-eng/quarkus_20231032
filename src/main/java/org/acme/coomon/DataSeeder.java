@@ -30,13 +30,13 @@ public class DataSeeder {
         }
 
         // User 초기 데이터
-        if (User.count() == 0) {
+       // if (User.count() == 0) {
             User guest = new User();
             guest.username = "guest";
-            guest.password = "123123";
+            guest.password = "96CAE35CE8A9B0244178BF28E4966C2CE1B8385723A96A6B838858CDD6CA0A1E";
             guest.persist();
         }
-    }
+    //}
 
     private void persist(String name, String role, String line) {
         Champion c = new Champion();
