@@ -1,1 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> -->
+   <script src="../js/bootstrap.bundle.min.js"></script>
+   <script src="../js/test.js"></script>
+   <script src="../js/toggle.js" defer></script>
+   <!-- <script src="js/search.js" defer></script> //dfer: HTML 다 읽은 후 JS 실행 -->
 
+   
+<script>
+  window.onload = function() {
+  alert("로그인 완료");
+  }
+</script>
+
+
+  <link rel="stylesheet" href="/css/download.css">
+
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="http://localhost:8080/">League of Legends</a>
+      <img src="/images/LOL.webp" alt="" width="30" height="24">
+      <!-- [변경] "Navbar" 텍스트 → 다크/라이트 토글 버튼 -->
+      <button class="btn border-0" id="themeToggleBtn">
+        🌙DARK
+      </button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">리그홈</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">뉴스</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">챔피언</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="main_page_sub/download.html">다운로드</a>
+          </li>
+        <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/profile">👤프로필</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link btn btn-outline-danger btn-sm px-3"
+            href="/logout">로그아웃</a>
+        </li>
+
+        
+
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              외부사이트
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="https://www.leagueoflegends.com/ko-kr/">롤공식홈</a></li>
+              <li><a class="dropdown-item" href="https://lol.ps/">롤전적</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">관련유튜브</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex" id="searchForm" role="search">
+          <input class="form-control me-2" type="search" placeholder="챔피언, 뉴스 검색..." aria-label="Search" id="searchInput">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+    <!-- 기존 로그인 등 페이지의 디자인을 재활용한다. -->
+<section class="hero d-flex align-items-center justify-content-center text-center py-5">
+  <div class="container" style="max-width: 500px;">
+    <h2 class="fw-bold mb-4">👤 내 프로필</h2>
+
+    <!-- 프로필 사진 영역 -->
+    <div class="mb-4">
+      <img id="profileImg"
+        src="/uploads/profile/default.png"
+        class="rounded-circle"
+        width="120" height="120"
+        style="object-fit:cover; border:3px solid #fff;"
+        alt="프로필 사진">
+    </div>
+
+    <!-- 개인 정보 출력 -->
+    <div class="card bg-dark text-white border-secondary mb-4">
+      <div class="card-body text-start">
+        <table class="table table-dark table-bordered mb-0">
+          <tr>
+            <th style="width:30%">아이디</th>
+            <td id="infoUsername"></td>
+          </tr>
+          <tr>
+            <th>이메일</th>
+            <td id="infoEmail"></td>
+          </tr>
+          <tr>
+            <th>연락처</th>
+            <td id="infoPhone"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- 사진 업로드 폼 -->
+    <form id="uploadForm"
+      method="POST"
+      action="/profile/upload"
+      enctype="multipart/form-data">
+      <div class="mb-3">
+
+   <!-- 사진 업로드 폼 -->
+    <form id="uploadForm"
+      method="POST"
+      action="/profile/upload"
+      enctype="multipart/form-data">
+      <div class="mb-3">
+        <label class="form-label">프로필 사진 변경</label>
+        <input type="file" class="form-control"
+          id="profileFile" name="profileImage"
+          accept=".jpg,.png,.gif,.webp">
+        <div class="form-text text-muted">jpg, png, gif, webp / 최대 5MB</div>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">사진 업로드</button>
+    </form>
+
+  </div>
+</section>
+
+<!-- 토스트 컨테이너 </body> 바로 위에 추가 -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index:9999">
+  <div id="liveToast" class="toast align-items-center text-white bg-success border-0" role="alert">
+    <div class="d-flex">
+      <div class="toast-body" id="toastBody">
+        메시지
+      </div>
+      <button type="button"
+        class="btn-close btn-close-white me-2 m-auto"
+        data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>
+
+<!-- JS 연동 -->
+<script src="../js/search.js"></script>
+<script src="../js/toggle.js"></script>
+<script src="../js/test2.js"></script>
+<script src="../js/Profile.js"></script>
+</body>
+</html>
