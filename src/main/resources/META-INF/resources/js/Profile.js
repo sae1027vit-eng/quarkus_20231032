@@ -27,5 +27,3 @@ window.onload = function () {
         }
     }
 };
-
-
