@@ -11,14 +11,21 @@ window.onload = function () {
                     '/uploads/profile/' + data.profileImage;
             }
         });
+
+         const params = new URLSearchParams(window.location.search);
+    const error = params.get('error');
+    if (error) {
+        const msgDiv = document.getElementById('uploadErrorMsg');
+        const messages = {
+            'invalid_type': 'jpg, png, gif, webp 파일만 가능합니다.',
+            'too_large':    '파일 크기는 5MB 이하여야 합니다.',
+            'upload_fail':  '업로드 실패. 다시 시도해주세요.'
+        };
+        if (messages[error]) {
+            msgDiv.textContent = messages[error];
+            msgDiv.classList.remove('d-none');
+        }
+    }
 };
 
-fetch('/profile/info')
-.then(res => res.json())
-.then(data => {
-const profileLink = document.getElementById('profileNavLink');
-if (profileLink) {
-profileLink.setAttribute('data-bs-title', ' ' + data.username);
-new bootstrap.Tooltip(profileLink);
-}
-});
+
