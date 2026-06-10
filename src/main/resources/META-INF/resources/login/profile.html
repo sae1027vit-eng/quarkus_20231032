@@ -12,11 +12,6 @@
    <!-- <script src="js/search.js" defer></script> //dfer: HTML 다 읽은 후 JS 실행 -->
 
    
-<script>
-  window.onload = function() {
-  alert("로그인 완료");
-  }
-</script>
 
 
   <link rel="stylesheet" href="/css/download.css">
@@ -52,7 +47,11 @@
             <a class="nav-link active" aria-current="page" href="main_page_sub/download.html">다운로드</a>
           </li>
         <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="/profile">👤프로필</a>
+        <!-- 툴팁으로 사용자명 표시: data-bs-toggle="tooltip"은 Bootstrap에게 이 요소가 tooltip임을 선언 -->
+        <a class="nav-link" href="/profile"
+           id="profileNavLink"
+           data-bs-toggle="tooltip"
+           data-bs-placement="bottom">👤프로필</a>
       </li>
         <li class="nav-item">
         <a class="nav-link btn btn-outline-danger btn-sm px-3"
@@ -137,6 +136,87 @@
       <button type="submit" class="btn btn-primary w-100">사진 업로드</button>
     </form>
 
+    <hr class="my-4">
+
+    <!-- 개인정보 수정 토글 버튼: data-bs-toggle="collapse"로 클릭 시 접기/펼치기 -->
+    <button class="btn btn-warning w-100 mb-2"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#updateFormArea"
+      aria-expanded="false">
+      개인정보 수정
+    </button>
+
+    <!-- class="collapse"로 기본 숨김 → 버튼 클릭 시 펼쳐짐 -->
+    <div class="collapse" id="updateFormArea">
+      <div class="card card-body bg-dark text-white border-secondary mt-2">
+        <!-- 수정 결과 메시지 -->
+        <div id="updateMsg" class="alert d-none mb-3"></div>
+        <form id="updateForm" method="POST" action="/profile/update">
+          <div class="mb-3 text-start">
+            <label class="form-label">이메일</label>
+            <input type="text" class="form-control"
+              id="updateEmail" name="email"
+              placeholder="example@email.com">
+            <div class="invalid-feedback" id="updateEmailMsg"></div>
+          </div>
+          <div class="mb-3 text-start">
+            <label class="form-label">연락처</label>
+            <input type="text" class="form-control"
+              id="updatePhone" name="phone"
+              placeholder="010-0000-0000">
+            <div class="invalid-feedback" id="updatePhoneMsg"></div>
+          </div>
+          <button type="button"
+            class="btn btn-warning w-100"
+            onclick="validateAndUpdate()">
+            수정완료
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <hr class="my-4">
+
+    <!-- 비밀번호 변경 폼 -->
+    <h5 class="fw-bold mb-3">비밀번호 변경</h5>
+
+    <!-- 비밀번호 변경 결과 메시지 -->
+    <div id="pwMsg" class="alert d-none mb-3"></div>
+
+    <form id="pwForm" method="POST" action="/profile/password">
+      <div class="mb-3 text-start">
+        <label class="form-label">현재 비밀번호</label>
+        <!-- 입력용(서버 전송 안됨) -->
+        <input type="password" class="form-control"
+          id="currentPwInput"
+          placeholder="현재 비밀번호 입력" required>
+        <div class="invalid-feedback" id="currentPwMsg"></div>
+        <!-- 해시값 전송용 hidden -->
+        <input type="hidden" id="currentPassword" name="currentPassword">
+      </div>
+      <div class="mb-3 text-start">
+        <label class="form-label">새 비밀번호</label>
+        <input type="password" class="form-control"
+          id="newPwInput"
+          placeholder="8자 이상, 영문+숫자+특수문자" required>
+        <div class="invalid-feedback" id="newPwMsg"></div>
+        <input type="hidden" id="newPassword" name="newPassword">
+      </div>
+      <div class="mb-3 text-start">
+        <label class="form-label">새 비밀번호 확인</label>
+        <input type="password" class="form-control"
+          id="newPwConfirm"
+          placeholder="새 비밀번호 재입력" required>
+        <div class="invalid-feedback" id="newPwConfirmMsg"></div>
+      </div>
+      <button type="button"
+        class="btn btn-danger w-100"
+        onclick="validateAndChangePassword()">
+        비밀번호 변경
+      </button>
+    </form>
+
   </div>
 </section>
 
@@ -158,6 +238,8 @@
 <script src="../js/search.js"></script>
 <script src="../js/toggle.js"></script>
 <script src="../js/test2.js"></script>
+<!-- SHA-256 해시 함수 제공: hashPassword() 사용 위해 필요 -->
+<script src="../js/input_sha256.js"></script>
 <script src="../js/Profile.js"></script>
 </body>
 </html>
